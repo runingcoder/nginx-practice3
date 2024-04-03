@@ -21,7 +21,7 @@
 const headers = new Headers();
 headers.append('Content-Type', 'application/json');
 headers.append('origin', 'https://facebook.com');
-fetch('http://128.199.196.16:8004/users/', {
+fetch('http://128.199.196.16:8006/users/', {
     headers: headers
 })
     .then(response => response.json())
