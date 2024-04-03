@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers, serializers, viewsets
+from rest_framework.response import Response
 
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):
@@ -14,6 +15,9 @@ class UserSerializer(serializers.ModelSerializer):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    def list(self, request):
+        print(request.headers)
+        return Response({"message": "Sucess!"})
 
 
 # Routers provide a way of automatically determining the URL conf.
